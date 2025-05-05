@@ -11,6 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { FinancialComponent } from './financial/financial.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SupplierFinancialComponent } from './supplier-financial/supplier-financial.component';
+import { InvoicePredectionComponent } from './pages/InvoicePredection/InvoicePredection.component';
+import { AmountInformationComponent } from './pages/amount-information/amount-information.component';
+import { SupplierClusteringComponent } from './pages/supplier-clustering/supplier-clustering.component';
+
+
 
 
 @NgModule({
@@ -22,7 +27,9 @@ import { SupplierFinancialComponent } from './supplier-financial/supplier-financ
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule,
+
     
   ],
   declarations: [
@@ -31,6 +38,9 @@ import { SupplierFinancialComponent } from './supplier-financial/supplier-financ
     LoginComponent,
     FinancialComponent,
     SupplierFinancialComponent,
+    InvoicePredectionComponent,
+    AmountInformationComponent,
+    SupplierClusteringComponent,
 
   ],
   providers: [],

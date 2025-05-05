@@ -7,6 +7,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './login/login.component';
 import { FinancialComponent } from './financial/financial.component';
 import { SupplierFinancialComponent } from './supplier-financial/supplier-financial.component';
+import { InvoicePredectionComponent } from './pages/InvoicePredection/InvoicePredection.component';
+import { AmountInformationComponent } from './pages/amount-information/amount-information.component';
 
 const routes: Routes =[
   {
@@ -23,7 +25,12 @@ const routes: Routes =[
   },*/
   {path:'login',component:LoginComponent},
   {path:'financial',component:FinancialComponent},
-  {path:'SupplierFinancial',component:SupplierFinancialComponent}
+  {path:'SupplierFinancial',component:SupplierFinancialComponent},
+  { path: 'InvoicePredection', component: InvoicePredectionComponent },
+  { path: 'amount-information', component: AmountInformationComponent },
+  {path: 'SupplierClustering', component: SupplierFinancialComponent},
+
+
 ];
 
 @NgModule({

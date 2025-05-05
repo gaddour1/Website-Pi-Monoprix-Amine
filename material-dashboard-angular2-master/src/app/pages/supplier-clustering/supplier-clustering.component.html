@@ -1,0 +1,82 @@
+<div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="https://www.monoprix.fr" class="simple-text">
+            <img src="assets/img/monoprix-logo.png" style="height: 50px; width: 200px;" />
+          </a>
+          <br><br>
+        </div>
+  
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" routerLink="/dashboard"><i class="material-icons">dashboard</i><p>Dashboard</p></a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/amount-information"><i class="material-icons">show_chart</i><p>Sales</p></a></li>
+          <li class="nav-item active"><a class="nav-link" routerLink="/supplier-clustering"><i class="material-icons">store</i><p>Clustering</p></a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="main-content" style="padding: 20px;">
+      <h2>Supplier Clustering Overview</h2>
+  
+      <div *ngIf="isLoading">Chargement...</div>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  
+      <h4>Métriques de Clustering</h4>
+      <ul>
+        <li>Silhouette Score: {{ metrics.silhouette_score }}</li>
+        <li>Calinski-Harabasz: {{ metrics.calinski_harabasz }}</li>
+        <li>Davies-Bouldin: {{ metrics.davies_bouldin }}</li>
+      </ul>
+  
+      <h4>Statistiques par Cluster</h4>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Cluster</th>
+            <th>Nom</th>
+            <th>Délai moyen</th>
+            <th>Ratio payé</th>
+            <th>Ratio impayé</th>
+            <th>Disputes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stat of clusterStats">
+            <td>{{ stat.Cluster }}</td>
+            <td>{{ stat.Cluster_Name }}</td>
+            <td>{{ stat.Mean_Payment_Delay | number: '1.1-1' }}</td>
+            <td>{{ stat.Paid_Ratio | percent:'1.1-1' }}</td>
+            <td>{{ stat.Unpaid_Ratio | percent:'1.1-1' }}</td>
+            <td>{{ stat.Total_Disputes }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <h4>Liste des fournisseurs</h4>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Fournisseur</th>
+            <th>Cluster</th>
+            <th>Nom Cluster</th>
+            <th>PCA X</th>
+            <th>PCA Y</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of suppliers">
+            <td>{{ s.Fk_Supplier }}</td>
+            <td>{{ s.Cluster }}</td>
+            <td>{{ s.Cluster_Name }}</td>
+            <td>{{ s.PCA_X | number:'1.2-2' }}</td>
+            <td>{{ s.PCA_Y | number:'1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <h4>Dashboard Streamlit (iframe)</h4>
+      <iframe src="http://localhost:8502" width="100%" height="800px" frameborder="0" style="border-radius: 12px;"></iframe>
+    </div>
+  </div>
+  
