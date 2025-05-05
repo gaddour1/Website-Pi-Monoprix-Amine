@@ -1,0 +1,153 @@
+/* Base reset/layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* ========== Sidebar ========== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60px;              /* Mini width */
+    background-color: #ffffff;
+    transition: width 0.2s ease;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  /* Expand on hover (desktop) */
+  @media (hover: hover) and (pointer: fine) {
+    .sidebar:hover {
+      width: 200px;           /* Expanded width */
+    }
+  }
+  /* Logo container tweaks */
+.logo {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Make the logo image bigger */
+  .logo-img img {
+    width: 80px;    /* Was auto, now fixed to 150px */
+    height: auto;
+    transition: width 0.2s ease;
+  }
+  
+  /* Optionally, expand even more on sidebar hover */
+  @media (hover: hover) and (pointer: fine) {
+    .sidebar:hover .logo-img img {
+      width: 180px;
+    }
+  }
+  
+  /* Sidebar content */
+  .sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .logo {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .logo-img img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Navigation items */
+  .nav {
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  .nav-item {
+    width: 100%;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .nav-link i {
+    font-size: 24px;
+  }
+  
+  /* Hide labels by default */
+  .nav-link .label {
+    opacity: 0;
+    margin-left: 10px;
+    transition: opacity 0.2s ease;
+  }
+  
+  /* Show labels when sidebar is expanded */
+  @media (hover: hover) and (pointer: fine) {
+    .sidebar:hover .nav-link .label {
+      opacity: 1;
+    }
+  }
+  
+  /* Active state */
+  .nav-item.active .nav-link {
+    background-color: #ffffff;
+  }
+  
+  /* ========== Main Content ========== */
+  .main-content {
+    margin-left: 60px;        /* Match mini width */
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.2s ease;
+  }
+  
+  /* Push main content when sidebar is hovered */
+  @media (hover: hover) and (pointer: fine) {
+    .sidebar:hover ~ .main-content {
+      margin-left: 200px;     /* Match expanded width */
+    }
+  }
+  
+  /* ========== Responsive tweaks ========== */
+  /* On small screens, make sidebar full width on toggle (no hover) */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0;
+    }
+    .sidebar.open {
+      width: 200px;
+    }
+    .main-content {
+      margin-left: 0;
+    }
+    .sidebar.open ~ .main-content {
+      margin-left: 200px;
+    }
+  }
+  
+  /* ========== Iframe styling ========== */
+  iframe {
+    width: 100%;
+    height: calc(100vh - 60px);
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
