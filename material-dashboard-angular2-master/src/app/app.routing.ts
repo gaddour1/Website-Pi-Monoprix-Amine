@@ -9,6 +9,7 @@ import { FinancialComponent } from './financial/financial.component';
 import { SupplierFinancialComponent } from './supplier-financial/supplier-financial.component';
 import { InvoicePredectionComponent } from './pages/InvoicePredection/InvoicePredection.component';
 import { AmountInformationComponent } from './pages/amount-information/amount-information.component';
+import { SupplierEvaluationComponent } from './pages/supplier-evaluation/supplier-evaluation.component';
 
 const routes: Routes =[
   {
@@ -29,6 +30,8 @@ const routes: Routes =[
   { path: 'InvoicePredection', component: InvoicePredectionComponent },
   { path: 'amount-information', component: AmountInformationComponent },
   {path: 'SupplierClustering', component: SupplierFinancialComponent},
+  {path: 'supplier-evaluation', component: SupplierEvaluationComponent},
+
 
 
 ];

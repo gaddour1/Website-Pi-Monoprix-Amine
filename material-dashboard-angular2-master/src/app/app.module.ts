@@ -14,6 +14,7 @@ import { SupplierFinancialComponent } from './supplier-financial/supplier-financ
 import { InvoicePredectionComponent } from './pages/InvoicePredection/InvoicePredection.component';
 import { AmountInformationComponent } from './pages/amount-information/amount-information.component';
 import { SupplierClusteringComponent } from './pages/supplier-clustering/supplier-clustering.component';
+import { SupplierEvaluationComponent } from './pages/supplier-evaluation/supplier-evaluation.component';
 
 
 
@@ -41,6 +42,7 @@ import { SupplierClusteringComponent } from './pages/supplier-clustering/supplie
     InvoicePredectionComponent,
     AmountInformationComponent,
     SupplierClusteringComponent,
+    SupplierEvaluationComponent,
 
   ],
   providers: [],
